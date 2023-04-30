@@ -19,7 +19,7 @@ def find_outliers_iqr(data, feature,left=1.5,right=1.5,log_scale=False):
     """
     if log_scale:
         if data[feature].min()<1: # - если в данных присутствуют значения меньше единицы:
-            print('find_outliers_iqr: значения <1 заменены на 1 для получения неотрицательных логарифмов')
+            print('find_outliers_iqr: значения меньше 1 заменены на 1 для получения неотрицательных логарифмов')
             new_data=data.copy()
             new_data.loc[new_data[feature]<1, feature]=1
         x = np.log(new_data[feature])
@@ -52,7 +52,7 @@ def find_outliers_z_score(data, feature, left=3, right=3, log_scale=False):
     """    
     if log_scale:
         if data[feature].min()<1: # - если в данных присутствуют значения меньше единицы:
-            print('find_outliers_z_score: значения <1 заменены на 1 для получения неотрицательных логарифмов')
+            print('find_outliers_z_score: значения меньше 1 заменены на 1 для получения неотрицательных логарифмов')
             new_data=data.copy()
             new_data.loc[new_data[feature]<1, feature]=1
         x = np.log(new_data[feature])
